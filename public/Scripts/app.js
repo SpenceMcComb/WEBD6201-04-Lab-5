@@ -161,6 +161,7 @@ class Contact
         console.log("App Started...");
         let name = window.location.pathname;
         let pageName = name.substring(1);
+        
         switch(pageName)
         {
             case 'home':
@@ -168,7 +169,47 @@ class Contact
             case 'contact':
                 ContactFunctionality();
                 break;
+            case 'login':
+                LoginFunctionality();
+                break;
+            case 'contact':
+                DisplayContactList();
+                break;
         }
+    }
+
+    function LoginFunctionality()
+    {
+        // Replaces the default submit action
+        $("#loginForm").submit  ((e)=>
+        {
+            // Some of the data is invalid
+            if(document.getElementById("loginForm").checkValidity() == false)
+            {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("form not valid");
+            }
+
+            // Supply the Contact object with the gathered information pertaining to it
+            let username = $("#username").val();
+            let password = $("#password").val();
+
+            console.log(`Contact Name: ${username}`);
+            console.log(`Email Address: ${password}`);
+        });
+    }
+
+    
+    function DisplayContactList()
+    {
+        document.title = "WEBD6201 - Contact List";
+        console.log("Check");
+        
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
     }
 
     // Call the start method when the page loads
