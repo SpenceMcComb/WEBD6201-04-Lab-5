@@ -52,6 +52,11 @@ router.get('/login', (req, res, next) =>
     controllers.displayLogin(res);
 });
 
+/* GET update page */
+router.get('/update', (req, res, next) =>
+{
+  controllers.displayUpdate(res);
+});
 
 
 module.exports = router;

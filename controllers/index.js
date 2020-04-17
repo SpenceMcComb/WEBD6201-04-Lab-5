@@ -55,3 +55,10 @@ module.exports.displayLogin = (res) =>
   });
 }
 
+module.exports.displayUpdate = (res) =>
+{
+  res.render('index',
+  {
+    title: 'Update'
+  });
+}
